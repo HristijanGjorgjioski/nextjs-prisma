@@ -63,11 +63,11 @@ jobs:
 
       - run: rm -rf node_modules/.prisma
 
-      - run: docker run --name next -e POSTGRES_USER=next -e POSTGRES_PASSWORD=next -p 5431:5432 -d postgres
+      - run: docker run --name next_prod -e POSTGRES_USER=next_prod -e POSTGRES_PASSWORD=next_prod -p 5433:5432 -d postgres
 
       - run: npx prisma generate
 
       - name: Deploy Migrations
         run: npx prisma migrate deploy
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}

@@ -7,7 +7,8 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://next:next@localhost:5431/next?schema=public"
+  // url      = "postgresql://next:next@localhost:5431/next?schema=public"
+  url = env("PROD_DATABASE_URL")
 }
 
 model User {
