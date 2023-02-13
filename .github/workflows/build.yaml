@@ -63,7 +63,6 @@ jobs:
 
       - run: rm -rf node_modules/.prisma
 
-      - name: Start DB
       - run: docker run --name next -e POSTGRES_USER=next -e POSTGRES_PASSWORD=next -p 5431:5432 -d postgres
 
       - run: npx prisma generate
