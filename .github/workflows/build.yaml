@@ -26,6 +26,9 @@ jobs:
 
   db:
     runs-on: ubuntu-latest
+    needs: install
+
+    name: Start DB server
     run: docker run --name next -e POSTGRES_USER=next -e POSTGRES_PASSWORD=next -p 5431:5432 -d postgres
 
   generate:
