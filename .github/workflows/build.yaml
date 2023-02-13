@@ -43,7 +43,7 @@ jobs:
       - run: rm -rf node_modules/.prisma
 
       - name: Generate Prisma Client
-        run: npx prisma generate
+        run: dotenv -e .env npx prisma generate
 
   migrate:
     runs-on: ubuntu-latest
