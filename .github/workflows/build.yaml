@@ -43,7 +43,7 @@ jobs:
       - run: rm -rf node_modules/.prisma
 
       - name: Generate Prisma Client
-        run: dotenv -e .env npx prisma generate
+        run: npx prisma generate
 
   migrate:
     runs-on: ubuntu-latest
@@ -68,4 +68,4 @@ jobs:
       - name: Deploy Migrations
         run: npx prisma migrate deploy
         env:
-          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
