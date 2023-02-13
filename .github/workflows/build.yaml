@@ -63,6 +63,8 @@ jobs:
 
       - run: rm -rf node_modules/.prisma
 
+      - run: npx prisma generate
+
       - name: Deploy Migrations
         run: npx prisma migrate deploy
         env:
