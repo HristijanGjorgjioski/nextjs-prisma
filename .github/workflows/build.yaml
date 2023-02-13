@@ -24,6 +24,10 @@ jobs:
       - name: Rerun Install
         run: npm install
 
+  db:
+    runs-on: ubuntu-latest
+    run: docker run --name next -e POSTGRES_USER=next -e POSTGRES_PASSWORD=next -p 5431:5432 -d postgres
+
   generate:
     runs-on: ubuntu-latest
 
